@@ -1,0 +1,66 @@
+.card {
+  background: white; border-radius: var(--radius-lg);
+  border: 1px solid var(--border); overflow: hidden;
+  position: relative; transition: all var(--transition);
+  display: flex; flex-direction: column;
+}
+.card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--green-light); }
+
+.badge {
+  position: absolute; top: 14px; left: 14px; z-index: 2;
+  padding: 4px 10px; border-radius: 20px; font-size: 0.7rem;
+  font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
+}
+.badgeGold { background: var(--gold-primary); color: #000; }
+.badgeGreen { background: var(--green-primary); color: white; }
+
+.imgWrap {
+  height: 200px; background: var(--bg-light);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.imgWrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+.card:hover .imgWrap img { transform: scale(1.05); }
+
+.placeholder {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, var(--bg-light), #e8f5ec);
+}
+.outOfStock {
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,0.45); color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 600; font-size: 0.9rem;
+}
+
+.body { padding: 18px; flex: 1; display: flex; flex-direction: column; }
+.category {
+  font-size: 0.7rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 1px; color: var(--green-medium); margin-bottom: 6px;
+}
+.name {
+  font-family: 'Cormorant Garamond', serif; font-size: 1.15rem;
+  font-weight: 700; color: var(--text-dark); margin-bottom: 8px;
+}
+.desc {
+  font-size: 0.82rem; color: var(--text-muted); line-height: 1.6;
+  margin-bottom: 14px; flex: 1;
+}
+.priceRow { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+.price { font-size: 1.2rem; font-weight: 700; color: var(--green-primary); }
+.original { font-size: 0.85rem; color: var(--text-muted); text-decoration: line-through; }
+.discount {
+  font-size: 0.72rem; font-weight: 700; background: #fef0f0;
+  color: #e74c3c; padding: 2px 8px; border-radius: 12px;
+}
+.addBtn {
+  width: 100%; padding: 12px;
+  background: linear-gradient(135deg, var(--green-primary), var(--green-medium));
+  color: white; border: none; border-radius: var(--radius-sm);
+  font-size: 0.88rem; font-weight: 600; cursor: pointer;
+  font-family: 'Inter', sans-serif; transition: all 0.3s;
+}
+.addBtn:hover:not(:disabled) { box-shadow: 0 6px 20px rgba(31,107,53,0.35); transform: translateY(-1px); }
+.addBtn:disabled { opacity: 0.5; cursor: not-allowed; }
+.added { background: linear-gradient(135deg, var(--gold-primary), var(--gold-light)) !important; color: #000 !important; }
