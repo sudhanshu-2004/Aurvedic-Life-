@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './HeroSection.module.css';
 
 export function HeroSection() {
@@ -8,6 +9,9 @@ export function HeroSection() {
       <div className={styles.bg} />
       <div className={styles.overlay} />
       <div className={styles.content}>
+        <div className={styles.logoWrap}>
+          <Image src="/images/logo.png" alt="Ayurved Life" width={200} height={70} priority style={{ objectFit: 'contain' }} />
+        </div>
         <span className={styles.pill}>🌿 The Soul of Ayurveda</span>
         <h1 className={styles.heading}>
           Heal with the<br/><span>Wisdom of Ayurveda</span>
@@ -25,7 +29,7 @@ export function HeroSection() {
           </Link>
         </div>
         <div className={styles.stats}>
-          {[['50K+', 'Happy Customers'], ['200+', 'Products'], ['15+', 'Years of Wisdom'], ['4.8★', 'Avg Rating']].map(([n, l]) => (
+          {[['50K+', 'Happy Customers'], ['4', 'Products'], ['100%', 'Herbal & Natural'], ['4.8★', 'Avg Rating']].map(([n, l]) => (
             <div key={l} className={styles.stat}>
               <strong>{n}</strong><span>{l}</span>
             </div>

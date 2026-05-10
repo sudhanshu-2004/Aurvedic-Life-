@@ -1,0 +1,215 @@
+.page {
+  padding: 120px 0 80px;
+  min-height: calc(100vh - 300px);
+  background: var(--bg-light);
+}
+
+.loading, .notFound {
+  padding: 150px 0;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  color: var(--green-dark);
+}
+
+.breadcrumb {
+  margin-bottom: 30px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+.breadcrumb a {
+  color: var(--green-primary);
+  text-decoration: none;
+}
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+.breadcrumb span {
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+.productLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  background: white;
+  padding: 40px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 900px) {
+  .productLayout {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    gap: 30px;
+  }
+}
+
+.imageSection {
+  position: relative;
+}
+
+.imageWrapper {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.imageWrapper img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.badge {
+  position: absolute; top: 20px; left: 20px; z-index: 2;
+  padding: 6px 14px; border-radius: 20px; font-size: 0.8rem;
+  font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
+}
+.badgeGold { background: var(--gold-primary); color: #000; }
+.badgeGreen { background: var(--green-primary); color: white; }
+
+.category {
+  font-size: 0.85rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 2px; color: var(--green-medium); margin-bottom: 10px;
+}
+
+.title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.priceContainer {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 5px;
+  flex-wrap: wrap;
+}
+
+.price {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--green-primary);
+}
+
+.originalPrice {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+.discountBadge {
+  font-size: 0.9rem;
+  font-weight: 700;
+  background: #fef0f0;
+  color: #e74c3c;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+.taxInfo {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 30px;
+}
+
+.description {
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid var(--border);
+}
+
+.description h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: var(--text-dark);
+}
+
+.description p {
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.addToCartBtn {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, var(--green-primary), var(--green-medium));
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.3s;
+  margin-bottom: 20px;
+}
+
+.addToCartBtn:hover:not(:disabled) {
+  box-shadow: 0 8px 25px rgba(31,107,53,0.35);
+  transform: translateY(-2px);
+}
+
+.addToCartBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.added {
+  background: linear-gradient(135deg, var(--gold-primary), var(--gold-light)) !important;
+  color: #000 !important;
+}
+
+.trustBanner {
+  background: var(--bg-light);
+  padding: 15px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.trustBanner p {
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  font-weight: 500;
+  margin: 0;
+}
+
+.backBtn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: var(--green-primary);
+  color: white;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+}

@@ -15,11 +15,11 @@
 .badgeGreen { background: var(--green-primary); color: white; }
 
 .imgWrap {
-  height: 200px; background: var(--bg-light);
+  height: 250px; background: white; padding: 10px;
   display: flex; align-items: center; justify-content: center;
   position: relative; overflow: hidden;
 }
-.imgWrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+.imgWrap img { width: 100%; height: 100%; object-fit: contain; transition: transform 0.4s; }
 .card:hover .imgWrap img { transform: scale(1.05); }
 
 .placeholder {

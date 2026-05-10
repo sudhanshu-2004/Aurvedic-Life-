@@ -3,6 +3,8 @@ import { useState } from 'react';
 import type { Product } from '@/lib/supabase';
 import styles from './ProductCard.module.css';
 
+import Link from 'next/link';
+
 interface Props { product: Product; }
 
 export function ProductCard({ product }: Props) {
@@ -10,7 +12,9 @@ export function ProductCard({ product }: Props) {
 
   const discount = Math.round(((product.original_price - product.price) / product.original_price) * 100);
 
-  const addToCart = () => {
+  const addToCart = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
     const cart = JSON.parse(localStorage.getItem('al_cart') || '[]');
     const idx = cart.findIndex((i: { id: string }) => i.id === product.id);
     if (idx >= 0) cart[idx].quantity += 1;
@@ -22,7 +26,7 @@ export function ProductCard({ product }: Props) {
   };
 
   return (
-    <div className={styles.card}>
+    <Link href={`/products/${product.id}`} className={styles.card}>
       {product.badge && (
         <span className={`${styles.badge} ${product.badge === 'Best Seller' ? styles.badgeGold : styles.badgeGreen}`}>
           {product.badge}
@@ -59,6 +63,6 @@ export function ProductCard({ product }: Props) {
           {added ? '✓ Added to Cart' : 'Add to Cart'}
         </button>
       </div>
-    </div>
+    </Link>
   );
 }

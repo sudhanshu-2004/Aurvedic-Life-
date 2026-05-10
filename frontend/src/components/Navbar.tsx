@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
 import type { User } from '@supabase/supabase-js';
@@ -42,16 +43,11 @@ export function Navbar() {
     <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
       <div className={styles.inner}>
         <Link href="/" className={styles.logo}>
-          <svg viewBox="0 0 48 48" height="36" xmlns="http://www.w3.org/2000/svg">
-            <path d="M24 4 C14 16 10 28 18 42 C22 34 26 22 24 4Z" fill="#1f6b35"/>
-            <path d="M18 12 C8 20 6 34 14 43 C18 34 20 24 18 12Z" fill="#2d8c4e"/>
-            <path d="M30 8 C36 14 38 24 34 36 C30 28 28 18 30 8Z" fill="#4caf70"/>
-          </svg>
-          <span className={styles.logoText}>Ayurved Life</span>
+          <Image src="/images/logo.png" alt="Ayurved Life" width={140} height={48} priority style={{ objectFit: 'contain' }} />
         </Link>
 
         <ul className={`${styles.links} ${menuOpen ? styles.open : ''}`}>
-          {['/', '/products', '/about', '#testimonials', '#contact'].map((href, i) => (
+          {['/', '/products', '/about', '/reviews', '/contact'].map((href, i) => (
             <li key={i}><Link href={href} onClick={() => setMenuOpen(false)}>
               {['Home','Products','About','Reviews','Contact'][i]}
             </Link></li>

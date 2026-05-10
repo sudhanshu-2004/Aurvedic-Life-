@@ -11,10 +11,14 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Load .env from the parent directory
+load_dotenv(os.path.join(BASE_DIR.parent, '.env'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
@@ -133,24 +137,24 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # WhiteNoise: serve the entire frontend folder (HTML, CSS, assets) from Django
-import os
 WHITENOISE_ROOT = os.path.join(BASE_DIR.parent)  # 'Ayurved life main' folder
 WHITENOISE_INDEX_FILE = True  # serve index.html at /
 
 # Media files (profile photos, uploads)
 MEDIA_URL = '/media/'
-import os
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # ── CREDENTIALS (fill these in) ──────────────────────────────
 # Google OAuth – get from console.cloud.google.com
-GOOGLE_CLIENT_ID = 'YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com'
+GOOGLE_CLIENT_ID = os.getenv('GOOGLE_CLIENT_ID', 'YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com')
 
-# Twilio – get from twilio.com/console
-TWILIO_ACCOUNT_SID = 'YOUR_TWILIO_ACCOUNT_SID'
-TWILIO_AUTH_TOKEN  = 'YOUR_TWILIO_AUTH_TOKEN'
-TWILIO_PHONE_NUMBER = '+1XXXXXXXXXX'
+# Twilio
+TWILIO_ACCOUNT_SID = os.getenv('TWILIO_ACCOUNT_SID', '')
+TWILIO_API_KEY_SID = os.getenv('TWILIO_API_KEY_SID', '')
+TWILIO_API_SECRET  = os.getenv('TWILIO_API_SECRET', '')
+TWILIO_PHONE_NUMBER = os.getenv('TWILIO_PHONE_NUMBER', '')
 
 # Razorpay – get from dashboard.razorpay.com
-RAZORPAY_KEY_ID     = 'rzp_test_Si3BnpqzknWBM1'
-RAZORPAY_KEY_SECRET = 'MqlP2zr2TdTikXUyecHk0Ic2'
+RAZORPAY_KEY_ID     = os.getenv('NEXT_PUBLIC_RAZORPAY_KEY_ID', 'rzp_test_Si3BnpqzknWBM1')
+RAZORPAY_KEY_SECRET = os.getenv('RAZORPAY_KEY_SECRET', 'MqlP2zr2TdTikXUyecHk0Ic2')
+

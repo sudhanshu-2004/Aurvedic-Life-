@@ -128,13 +128,16 @@ def send_otp(request):
 
     # Try sending via Twilio; fall back to console in dev
     try:
-        from twilio.rest import Client
-        client = Client(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN)
-        client.messages.create(
-            body=f'Your Ayurved Life OTP is: {otp}. Valid for 5 minutes.',
-            from_=settings.TWILIO_PHONE_NUMBER,
-            to=f'+91{phone}'
-        )
+        if settings.TWILIO_API_KEY_SID and settings.TWILIO_API_SECRET and settings.TWILIO_ACCOUNT_SID and settings.TWILIO_PHONE_NUMBER:
+            from twilio.rest import Client
+            client = Client(settings.TWILIO_API_KEY_SID, settings.TWILIO_API_SECRET, settings.TWILIO_ACCOUNT_SID)
+            client.messages.create(
+                body=f'Your Ayurved Life OTP is: {otp}. Valid for 5 minutes.',
+                from_=settings.TWILIO_PHONE_NUMBER,
+                to=f'+91{phone}'
+            )
+        else:
+            raise Exception("Twilio credentials not fully configured.")
     except Exception as e:
         # Dev fallback: print OTP to console
         print(f'[DEV] OTP for {phone}: {otp}  (Twilio error: {e})')
