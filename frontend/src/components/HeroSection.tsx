@@ -9,9 +9,7 @@ export function HeroSection() {
       <div className={styles.bg} />
       <div className={styles.overlay} />
       <div className={styles.content}>
-        <div className={styles.logoWrap}>
-          <Image src="/images/logo.png" alt="Ayurved Life" width={200} height={70} priority style={{ objectFit: 'contain' }} />
-        </div>
+
         <span className={styles.pill}>🌿 The Soul of Ayurveda</span>
         <h1 className={styles.heading}>
           Heal with the<br/><span>Wisdom of Ayurveda</span>
